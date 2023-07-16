@@ -1,0 +1,57 @@
+<section class="crewPage">
+  <app-navbar></app-navbar>
+  <main class="crew">
+    <h1 class="crew__heading"><span>02</span>meet your crew</h1>
+    <div class="crew__info">
+      <img
+        class="crew__info__image"
+        [src]="crew[memberIndex].images.png"
+        alt="crew-img"
+        [class.animate]="animate"
+      />
+      <div class="crew__info__main">
+        <div class="crew__info__main__navigation">
+          <button
+            [class.active]="isActiveMember(members[0])"
+            (click)="switchMember($event)"
+          >
+            {{ members[0] }}
+          </button>
+          <button
+            [class.active]="isActiveMember(members[1])"
+            (click)="switchMember($event)"
+          >
+            {{ members[1] }}</button
+          ><button
+            [class.active]="isActiveMember(members[2])"
+            (click)="switchMember($event)"
+          >
+            {{ members[2] }}</button
+          ><button
+            [class.active]="isActiveMember(members[3])"
+            (click)="switchMember($event)"
+          >
+            {{ members[3] }}
+          </button>
+          <!-- <button
+            [class.active]="isActiveMember(member)"
+            (click)="switchMember($event)"
+          >
+            {{ member }}
+          </button> -->
+        </div>
+        <div class="crew__info__main__member" [class.animate]="animate">
+          <span class="crew__info__main__member__position">{{
+            crew[memberIndex].role
+          }}</span>
+          <h4 class="crew__info__main__member__name">
+            {{ crew[memberIndex].name }}
+          </h4>
+          <p class="crew__info__main__member__bio">
+            {{ crew[memberIndex].bio }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

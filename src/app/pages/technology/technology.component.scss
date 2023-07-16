@@ -1,0 +1,151 @@
+@import "../../../assets/variables.scss";
+@import "animate.css";
+
+.technologyPage {
+  background: url(../../../assets/technology/background-technology-mobile.jpg)
+    #0b0d17 0px 0px / 100% 100% no-repeat;
+  min-height: 100vh;
+  @media (min-width: 768px) {
+    background: url(../../../assets/technology/background-technology-tablet.jpg)
+      #0b0d17 0px 0px / 100% 100% no-repeat;
+  }
+  @media (min-width: 1024px) {
+    background: url(../../../assets/technology/background-technology-desktop.jpg)
+      #0b0d17 0px 0px / 100% 100% no-repeat;
+  }
+}
+
+.technology {
+  @include flex(column, center, center);
+  padding: 30px 0 100px 0;
+  row-gap: 40px;
+  text-align: center;
+  max-width: 1440px;
+  margin: auto;
+  overflow: hidden;
+  &__info {
+    &__image {
+      width: 100vw;
+      height: auto;
+      &.animate {
+        animation: fadeIn 0.5s;
+      }
+    }
+    &__main {
+      @include flex(column, center, center);
+      text-align: center;
+      padding-top: 30px;
+      row-gap: 25px;
+      &__navigation {
+        @include flex(row, center, center);
+        grid-gap: 20px;
+        button {
+          background: none;
+          border: 1px solid hsla(0, 0, 100, 0.25);
+          color: $white;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          font-family: $bellefair;
+          font-size: 16px;
+          cursor: pointer;
+          &.active {
+            background: white;
+            color: #0b0d17;
+          }
+        }
+      }
+      &__details {
+        @include flex(column, center, center);
+        padding: 0 5%;
+        row-gap: 10px;
+        &.animate {
+          animation: fadeIn 0.5s;
+        }
+        span {
+          color: #d0d6f9;
+          font-size: 14px;
+          font-family: $barlowCondensed;
+          letter-spacing: 2.362px;
+          text-transform: uppercase;
+        }
+        &__name {
+          color: #fff;
+          font-size: 24px;
+          font-family: $bellefair;
+          text-transform: uppercase;
+          margin: 5px 0 15px 0;
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    row-gap: 60px;
+    padding-top: 50px;
+    &__heading {
+      align-self: start;
+      margin-left: 5%;
+    }
+    &__info {
+      &__main {
+        padding-top: 50px;
+        row-gap: 40px;
+        &__navigation {
+          button {
+            width: 58px;
+            height: 58px;
+            font-size: 24px;
+          }
+        }
+        &__details {
+          span {
+            font-size: 16px;
+            letter-spacing: 2.7px;
+          }
+          &__name {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    row-gap: 60px;
+    padding-top: 80px;
+    &__heading {
+      margin-left: 10%;
+    }
+    &__info {
+      @include flex(row-reverse, space-between, center);
+      width: 100%;
+      padding-left: 10%;
+      grid-gap: 20px;
+      &__image {
+        width: 37vw;
+        max-width: 552px;
+        height: auto;
+      }
+      &__main {
+        @include flex(row, start, center);
+        text-align: left;
+        grid-gap: 40px;
+        &__navigation {
+          @include flex(column, space-between, center);
+          grid-gap: 35px;
+          button {
+            width: 80px;
+            height: 80px;
+            font-size: 32px;
+          }
+        }
+        &__details {
+          @include flex(column, start, start);
+          padding: 0;
+          &__name {
+            font-size: 56px;
+          }
+        }
+      }
+    }
+  }
+}

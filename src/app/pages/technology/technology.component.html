@@ -1,0 +1,55 @@
+<section class="technologyPage">
+  <app-navbar></app-navbar>
+  <main class="technology">
+    <h1 class="technology__heading"><span>03</span>space launch 101</h1>
+    <div class="technology__info">
+      <img
+        class="technology__info__image"
+        [class.animate]="animate"
+        [src]="
+          isBigScreen
+            ? technology[technologyIndex].images.portrait
+            : technology[technologyIndex].images.landscape
+        "
+        alt="technology-image"
+      />
+      <div class="technology__info__main">
+        <div class="technology__info__main__navigation">
+          <button
+            [class.active]="isActiveTechnology(1)"
+            (click)="switchTechnology($event)"
+          >
+            1
+          </button>
+          <button
+            [class.active]="isActiveTechnology(2)"
+            (click)="switchTechnology($event)"
+          >
+            2
+          </button>
+          <button
+            [class.active]="isActiveTechnology(3)"
+            (click)="switchTechnology($event)"
+          >
+            3
+          </button>
+          <!-- <button
+            [class.active]="isActiveTechnology(tech)"
+            (click)="switchTechnology($event)"
+          >
+            {{ tech }}
+          </button> -->
+        </div>
+        <div class="technology__info__main__details" [class.animate]="animate">
+          <span>the terminology...</span>
+          <h4 class="technology__info__main__details__name">
+            {{ technology[technologyIndex].name }}
+          </h4>
+          <p class="technology__info__main__details__description">
+            {{ technology[technologyIndex].description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

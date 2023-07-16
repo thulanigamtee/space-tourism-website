@@ -1,0 +1,111 @@
+@import "../../../assets/variables.scss";
+header {
+  @include flex(row, space-between, flex-start);
+  padding-top: 24px;
+  img {
+    width: 40px;
+    flex-shrink: 0;
+    margin-left: 5%;
+  }
+  button {
+    background: none;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    z-index: 9;
+    img {
+      width: 24px;
+      flex-shrink: 0;
+    }
+  }
+  ul {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.774227142333984px);
+    font-family: $barlow;
+    text-transform: uppercase;
+    display: none;
+    width: clamp(200px, 70vw, 830px);
+    height: 100vh;
+    padding-left: 32px;
+    padding-top: 118px;
+    gap: 30px;
+    top: 0;
+    li {
+      color: #fff;
+      font-size: 16px;
+      font-family: Barlow Condensed;
+      letter-spacing: 2.7px;
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: #fff;
+        white-space: nowrap;
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+    &.active {
+      @include flex(column, flex-start, flex-start);
+      position: absolute;
+      right: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    align-items: center;
+    padding-top: 0;
+    img {
+      width: 48px;
+    }
+    button {
+      display: none;
+    }
+    ul {
+      @include flex(row, space-between, center);
+      height: auto;
+      padding-left: 0;
+      padding-top: 0;
+      width: 60vw;
+      padding-inline: 5%;
+      height: 96px;
+      position: relative;
+      &.active {
+        @include flex(row, flex-start, flex-start);
+        position: relative;
+      }
+      li {
+        a {
+          padding: 35px 0;
+          span {
+            display: none;
+          }
+          &.active {
+            box-shadow: 0 3px 0 0 $white;
+          }
+          &:hover {
+            &:not(.active) {
+              box-shadow: 0 3px 0 0 $transWhite;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-top: 40px;
+    max-width: 1440px;
+    margin-inline: auto;
+    ul {
+      padding-inline: 7vw;
+      max-width: 830px;
+      li {
+        a {
+          span {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}

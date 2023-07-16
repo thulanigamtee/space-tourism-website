@@ -1,0 +1,46 @@
+<section class="destinationPage">
+  <app-navbar></app-navbar>
+  <main class="destination">
+    <h1 class="destination__heading"><span>01</span>pick your destination</h1>
+    <div class="destination__info">
+      <img
+        class="destination__info__image"
+        [src]="destination[destinationIndex].images.png"
+        alt="destination-img"
+        [class.animate]="animate"
+      />
+      <div class="destination__info__main">
+        <div
+          class="destination__info__main__destinations"
+          *ngFor="let dest of destinations"
+        >
+          <button
+            [class.active]="isActiveDestination(dest)"
+            (click)="switchDestination($event)"
+          >
+            {{ dest }}
+          </button>
+        </div>
+        <h2 class="destination__info__main__name" [class.animate]="animate">
+          {{ destination[destinationIndex].name }}
+        </h2>
+        <p
+          class="destination__info__main__description"
+          [class.animate]="animate"
+        >
+          {{ destination[destinationIndex].description }}
+        </p>
+        <div class="destination__info__main__data" [class.animate]="animate">
+          <article>
+            <span>avg. distance</span>
+            <h3>{{ destination[destinationIndex].distance }}</h3>
+          </article>
+          <article>
+            <span>est. travel time</span>
+            <h3>{{ destination[destinationIndex].travel }}</h3>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

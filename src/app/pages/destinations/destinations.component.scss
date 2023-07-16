@@ -1,0 +1,153 @@
+@import "../../../assets/variables.scss";
+@import "animate.css";
+.destinationPage {
+  background: url(../../../assets/destination/background-destination-mobile.jpg)
+    #0b0d17 0px 0px / 100% 100% no-repeat;
+  min-height: 100vh;
+  @media (min-width: 768px) {
+    background: url(../../../assets/destination/background-destination-tablet.jpg)
+      #0b0d17 0px 0px / 100% 100% no-repeat;
+  }
+  @media (min-width: 1024px) {
+    background: url(../../../assets/destination/background-destination-desktop.jpg)
+      #0b0d17 0px 0px / 100% 100% no-repeat;
+  }
+}
+
+.destination {
+  @include flex(column, center, center);
+  text-align: center;
+  padding: 40px 5%;
+  row-gap: 25px;
+  overflow: hidden;
+  max-width: 1440px;
+  margin: auto;
+  &__info {
+    @include flex(column, center, center);
+    row-gap: 30px;
+    &__image {
+      width: clamp(170px, 30vw, 445px);
+      &.animate {
+        animation: fadeIn 0.5s;
+      }
+    }
+    &__main {
+      &__destinations {
+        display: inline-flex;
+        button {
+          color: $transWhite;
+          font-family: $barlowCondensed;
+          font-size: 14px;
+          letter-spacing: 2.36px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding-bottom: 10px;
+          margin-inline: 10px;
+          &.active {
+            color: white;
+            box-shadow: 0 3px 0 0 white;
+          }
+          &:hover {
+            &:not(&.active) {
+              box-shadow: 0 3px 0 0 $transWhite;
+            }
+          }
+        }
+      }
+      &__name {
+        font-family: $bellefair;
+        color: $white;
+        font-size: 56px;
+        text-transform: uppercase;
+        margin-top: 20px;
+        &.animate {
+          animation: fadeIn 0.5s;
+        }
+      }
+      &__description {
+        border-bottom: 1px solid #383b4b;
+        padding-bottom: 30px;
+        &.animate {
+          animation: fadeIn 0.5s;
+        }
+      }
+      &__data {
+        @include flex(column, center, center);
+        row-gap: 25px;
+        margin-top: 30px;
+        &.animate {
+          animation: fadeIn 0.5s;
+        }
+        article {
+          text-transform: uppercase;
+          span {
+            color: #d0d6f9;
+            font-family: $barlowCondensed;
+            font-size: 14px;
+            letter-spacing: 2.36px;
+          }
+          h3 {
+            color: $white;
+            font-size: 28px;
+            font-family: $bellefair;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    row-gap: 60px;
+    &__heading {
+      align-self: flex-start;
+    }
+    &__info {
+      row-gap: 50px;
+      &__main {
+        &__destinations {
+          button {
+            font-size: 16px;
+            letter-spacing: 2.7px;
+          }
+        }
+        &__name {
+          font-size: 80px;
+          margin-top: 40px;
+        }
+        &__description {
+          padding-bottom: 60px;
+        }
+        &__data {
+          @include flex(row, space-evenly, center);
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    padding: 70px 10% 70px 10%;
+    &__info {
+      @include flex(row, space-between, flex-start);
+      text-align: start;
+      min-width: 100%;
+      padding-inline: 5%;
+      margin-top: 60px;
+      &__main {
+        text-align: start;
+        &__destinations {
+          grid-gap: 40px;
+          margin: 0;
+        }
+        &__name {
+          font-size: 100px;
+        }
+        &__data {
+          @include flex(row, flex-start, flex-start);
+          grid-gap: 80px;
+          text-align: start;
+        }
+      }
+    }
+  }
+}

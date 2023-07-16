@@ -1,0 +1,69 @@
+@import "../../../assets/variables.scss";
+.homePage {
+  background: url(../../../assets/home/background-home-mobile.jpg) #0b0d17 0px
+    0px / 100% 100% no-repeat;
+  min-height: 100vh;
+  @media (min-width: 768px) {
+    background: url(../../../assets/home/background-home-tablet.jpg) #0b0d17 0px
+      0px / 100% 100% no-repeat;
+  }
+  @media (min-width: 1024px) {
+    background: url(../../../assets/home/background-home-desktop.jpg) #0b0d17
+      0px 0px / 100% 100% no-repeat;
+  }
+}
+
+.home {
+  @include flex(column, center, center);
+  text-align: center;
+  padding: 40px 5%;
+  row-gap: 100px;
+  max-width: 1440px;
+  margin: auto;
+  &__info {
+    @include flex(column, center, center);
+    row-gap: 25px;
+    &__description {
+      max-width: 444px;
+    }
+    span {
+      font-family: $bellefair;
+      font-size: 80px;
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
+  &__explore {
+    @include flex(row, center, center);
+    font: {
+      family: $bellefair;
+      size: 20px;
+    }
+    width: clamp(150px, 30vw, 274px);
+    height: clamp(150px, 30vw, 274px);
+    background: $white;
+    text-transform: uppercase;
+    border-radius: 50%;
+    letter-spacing: 1.25px;
+  }
+  @media (min-width: 768px) {
+    padding: 100px 5%;
+    row-gap: 200px;
+    &__info {
+      span {
+        font-size: 150px;
+      }
+    }
+    &__explore {
+      font-size: 32px;
+    }
+  }
+  @media (min-width: 1024px) {
+    @include flex(row, space-between, flex-end);
+    text-align: start;
+    padding: 200px 10% 100px 10%;
+    &__info {
+      align-items: flex-start;
+    }
+  }
+}
