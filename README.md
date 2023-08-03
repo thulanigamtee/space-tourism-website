@@ -70,5 +70,5 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ## Author
 
-- Frontend Mentor - [@thulanigamtee](https://www.frontendmentor.io/profile/username/)
+- Frontend Mentor - [@thulanigamtee](https://www.frontendmentor.io/profile/thulanigamtee/)
 
