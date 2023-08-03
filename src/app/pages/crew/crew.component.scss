@@ -1,141 +1,130 @@
 @import "../../../assets/variables.scss";
-@import "animate.css";
-.crewPage {
-  background: url(../../../assets/crew/background-crew-mobile.jpg) #0b0d17 0px
-    0px / 100% 100% no-repeat;
-  min-height: 100vh;
-  @media (min-width: 768px) {
-    background: url(../../../assets/crew/background-crew-tablet.jpg) #0b0d17 0px
-      0px / 100% 100% no-repeat;
-  }
-  @media (min-width: 1024px) {
-    background: url(../../../assets/crew/background-crew-desktop.jpg) #0b0d17
-      0px 0px / 100% 100% no-repeat;
-  }
-}
 
 .crew {
-  @include flex(column, center, center);
-  text-align: center;
-  padding: 30px 5% 90px 5%;
-  row-gap: 30px;
-  overflow: hidden;
-  max-width: 1440px;
-  margin: auto;
+  @include pageStyle;
+  padding: 1.875rem 5% 5.625rem 5%;
+  row-gap: 1.875rem;
   &__heading {
-    padding-bottom: 40px;
+    padding-bottom: 2.5rem;
   }
   &__info {
     &__image {
-      width: clamp(177px, 36vw, 568px);
+      @include animation;
+      width: clamp(11.0625rem, 36vw, 35.5rem);
       flex-shrink: 0;
-      &.animate {
-        animation: fadeIn 0.5s;
-      }
     }
     &__main {
-      @include flex(column, center, center);
-      row-gap: 15px;
-      padding-top: 30px;
+      padding-top: 1.875rem;
       &__navigation {
-        @include flex(row, center, center);
-        grid-gap: 20px;
-        margin-bottom: 20px;
-        margin-inline: 10px;
+        display: inline-flex;
+        grid-gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        margin-top: 2.5rem;
+        margin-inline: 0.625rem;
         button {
-          background: white;
-          border: none;
-          width: 10px;
-          height: 10px;
+          background: $white;
+          width: 0.625rem;
+          height: 0.625rem;
           border-radius: 50%;
           opacity: 0.2;
-          cursor: pointer;
           overflow: hidden;
+          color: transparent;
           &.active {
             opacity: 1;
+          }
+          &:hover {
+            &:not(&.active) {
+              scale: 1.1;
+              opacity: 0.5;
+            }
           }
         }
       }
       &__member {
         @include flex(column, center, center);
-        row-gap: 10px;
-        &.animate {
-          animation: fadeIn 0.5s;
-        }
+        @include animation;
+        row-gap: 0.625rem;
         &__position {
           color: #fff;
-          font-size: 16px;
+          font-size: 1rem;
           font-family: $bellefair;
           text-transform: uppercase;
           opacity: 0.4951259195804596;
         }
         &__name {
           color: #fff;
-          font-size: 24px;
+          font-size: 1.5rem;
           font-family: $bellefair;
           text-transform: uppercase;
         }
       }
     }
   }
-  @media (min-width: 768px) {
+}
+
+@media (min-width: $tablet) {
+  .crew {
     padding-bottom: 0;
+    // padding: 1.875rem 5% 5.625rem 5%;
     &__heading {
       align-self: start;
     }
     &__info {
       @include flex(column-reverse, center, center);
       &__image {
-        margin-top: 80px;
+        margin-top: 5rem;
       }
       &__main {
-        @include flex(column-reverse, center, center);
-        row-gap: 40px;
         &__member {
           &__position {
-            font-size: 24px;
+            font-size: 1.5rem;
           }
           &__name {
-            font-size: 40px;
+            font-size: 2.5rem;
           }
           &__bio {
-            max-width: 400px;
+            max-width: 25rem;
           }
         }
       }
     }
   }
-  @media (min-width: 1024px) {
-    @include flex(column, start, start);
+}
+
+@media (min-width: $desktop) {
+  .crew {
+    @include flex(column, flex-start, flex-start);
     text-align: start;
-    padding-inline: 10%;
-    padding-top: 0px;
+    padding-inline: 0;
+    padding-top: 0rem;
     &__heading {
-      transform: translateY(100px);
+      transform: translateY(6.25rem);
+      margin-left: 10%;
     }
     &__info {
       @include flex(row-reverse, space-between, center);
       min-width: 100%;
+      padding-inline: 10%;
       &__image {
         margin-top: 0;
       }
       &__main {
-        @include flex(column-reverse, start, start);
-        row-gap: 100px;
         &__navigation {
+          grid-gap: 1.875rem;
+          margin-top: 5rem;
           button {
-            width: 15px;
-            height: 15px;
+            width: 0.9375rem;
+            height: 0.9375rem;
           }
         }
         &__member {
-          @include flex(column, start, start);
+          @include flex(column, flex-start, flex-start);
           text-align: start;
           &__position {
-            font-size: 32px;
+            font-size: 2rem;
           }
           &__name {
-            font-size: 56px;
+            font-size: 3.5rem;
           }
         }
       }

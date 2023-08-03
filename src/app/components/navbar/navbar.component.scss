@@ -1,108 +1,126 @@
 @import "../../../assets/variables.scss";
+
 header {
   @include flex(row, space-between, flex-start);
-  padding-top: 24px;
+  padding-top: 1.5rem;
+  max-width: 90rem;
   img {
-    width: 40px;
+    width: 2.5rem;
     flex-shrink: 0;
     margin-left: 5%;
   }
   button {
-    background: none;
-    border: none;
     position: absolute;
-    cursor: pointer;
     right: 5%;
-    z-index: 9;
+    z-index: 8;
     img {
-      width: 24px;
+      width: 1.5rem;
       flex-shrink: 0;
     }
   }
-  ul {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(40.774227142333984px);
-    font-family: $barlow;
-    text-transform: uppercase;
-    display: none;
-    width: clamp(200px, 70vw, 830px);
-    height: 100vh;
-    padding-left: 32px;
-    padding-top: 118px;
-    gap: 30px;
-    top: 0;
-    li {
-      color: #fff;
-      font-size: 16px;
-      font-family: Barlow Condensed;
-      letter-spacing: 2.7px;
-      list-style: none;
-      a {
-        text-decoration: none;
+  nav {
+    ul {
+      @include flex(column, flex-start, flex-start);
+      width: 0;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(2.5625rem);
+      position: absolute;
+      overflow: hidden;
+      padding-top: 6.25rem;
+      height: 100vh;
+      gap: 2.1875rem;
+      right: 0;
+      top: 0;
+      transition: 0.5s ease-in-out;
+      &.active {
+        width: clamp(12.5rem, 70vw, 51.875rem);
+        padding-left: 2rem;
+        z-index: 7;
+        gap: 2.1875rem;
+        visibility: visible;
+      }
+      li {
         color: #fff;
-        white-space: nowrap;
-        span {
-          font-weight: 700;
+        font-size: 1rem;
+        font-family: Barlow Condensed;
+        letter-spacing: 0.1688rem;
+        list-style: none;
+        text-transform: uppercase;
+        a {
+          text-decoration: none;
+          color: #fff;
+          white-space: nowrap;
+          span {
+            font-weight: 700;
+          }
         }
       }
     }
-    &.active {
-      @include flex(column, flex-start, flex-start);
-      position: absolute;
-      right: 0;
-    }
   }
-  @media (min-width: 768px) {
+}
+
+@media (min-width: $tablet) {
+  header {
     align-items: center;
     padding-top: 0;
     img {
-      width: 48px;
+      width: 3rem;
     }
     button {
       display: none;
     }
-    ul {
-      @include flex(row, space-between, center);
-      height: auto;
-      padding-left: 0;
-      padding-top: 0;
-      width: 60vw;
-      padding-inline: 5%;
-      height: 96px;
-      position: relative;
-      &.active {
-        @include flex(row, flex-start, flex-start);
+    nav {
+      ul {
+        @include flex(row, space-evenly, center);
+        width: 60vw;
+        height: auto;
+        padding-top: 0;
         position: relative;
-      }
-      li {
-        a {
-          padding: 35px 0;
-          span {
-            display: none;
-          }
-          &.active {
-            box-shadow: 0 3px 0 0 $white;
-          }
-          &:hover {
-            &:not(.active) {
-              box-shadow: 0 3px 0 0 $transWhite;
+        gap: 0;
+        transition: none;
+        &.active {
+          @include flex(row, space-evenly, center);
+          width: 60vw;
+          text-align: center;
+          height: auto;
+          padding: 0;
+          position: relative;
+          gap: 0;
+        }
+        li {
+          padding-block: 3rem;
+          a {
+            padding-block: 45px;
+            &.active {
+              box-shadow: 0 0.1875rem 0 0 $white;
+            }
+            &:hover {
+              &:not(.active) {
+                box-shadow: 0 0.1875rem 0 0 $grayish;
+              }
+            }
+            span {
+              display: none;
             }
           }
         }
       }
     }
   }
-  @media (min-width: 1024px) {
-    padding-top: 40px;
-    max-width: 1440px;
+}
+
+@media (min-width: $desktop) {
+  header {
+    padding-top: 2.5rem;
     margin-inline: auto;
-    ul {
-      padding-inline: 7vw;
-      max-width: 830px;
-      li {
-        a {
-          span {
-            display: inline-block;
+    nav {
+      ul {
+        max-width: 51.875rem;
+        li {
+          a {
+            span {
+              display: inline-block;
+            }
           }
         }
       }

@@ -1,150 +1,130 @@
 @import "../../../assets/variables.scss";
-@import "animate.css";
-.destinationPage {
-  background: url(../../../assets/destination/background-destination-mobile.jpg)
-    #0b0d17 0px 0px / 100% 100% no-repeat;
-  min-height: 100vh;
-  @media (min-width: 768px) {
-    background: url(../../../assets/destination/background-destination-tablet.jpg)
-      #0b0d17 0px 0px / 100% 100% no-repeat;
-  }
-  @media (min-width: 1024px) {
-    background: url(../../../assets/destination/background-destination-desktop.jpg)
-      #0b0d17 0px 0px / 100% 100% no-repeat;
-  }
-}
 
 .destination {
-  @include flex(column, center, center);
-  text-align: center;
-  padding: 40px 5%;
-  row-gap: 25px;
-  overflow: hidden;
-  max-width: 1440px;
-  margin: auto;
+  @include pageStyle;
+  padding: 2.5rem 5%;
+  row-gap: 1.5625rem;
   &__info {
     @include flex(column, center, center);
-    row-gap: 30px;
+    row-gap: 1.875rem;
     &__image {
-      width: clamp(170px, 30vw, 445px);
-      &.animate {
-        animation: fadeIn 0.5s;
-      }
+      @include animation;
+      width: clamp(10.625rem, 30vw, 27.8125rem);
     }
     &__main {
       &__destinations {
         display: inline-flex;
         button {
-          color: $transWhite;
+          color: $grayish;
           font-family: $barlowCondensed;
-          font-size: 14px;
-          letter-spacing: 2.36px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding-bottom: 10px;
-          margin-inline: 10px;
+          font-size: 0.875rem;
+          letter-spacing: 0.1475rem;
+          padding-bottom: 0.625rem;
+          margin-inline: 0.625rem;
           &.active {
             color: white;
-            box-shadow: 0 3px 0 0 white;
+            box-shadow: 0 0.1875rem 0 0 white;
           }
           &:hover {
             &:not(&.active) {
-              box-shadow: 0 3px 0 0 $transWhite;
+              box-shadow: 0 0.1875rem 0 0 $grayish;
             }
           }
         }
       }
       &__name {
+        @include animation;
         font-family: $bellefair;
         color: $white;
-        font-size: 56px;
+        font-size: 3.5rem;
         text-transform: uppercase;
-        margin-top: 20px;
-        &.animate {
-          animation: fadeIn 0.5s;
-        }
+        margin-top: 1.25rem;
       }
       &__description {
-        border-bottom: 1px solid #383b4b;
-        padding-bottom: 30px;
-        &.animate {
-          animation: fadeIn 0.5s;
-        }
+        @include animation;
+        border-bottom: 0.0625rem solid #383b4b;
+        padding-bottom: 1.875rem;
       }
       &__data {
+        @include animation;
         @include flex(column, center, center);
-        row-gap: 25px;
-        margin-top: 30px;
-        &.animate {
-          animation: fadeIn 0.5s;
-        }
+        row-gap: 1.5625rem;
+        margin-top: 1.875rem;
         article {
           text-transform: uppercase;
           span {
             color: #d0d6f9;
             font-family: $barlowCondensed;
-            font-size: 14px;
-            letter-spacing: 2.36px;
+            font-size: 0.875rem;
+            letter-spacing: 0.1475rem;
           }
           h3 {
             color: $white;
-            font-size: 28px;
+            font-size: 1.75rem;
             font-family: $bellefair;
-            margin-top: 10px;
+            margin-top: 0.625rem;
           }
         }
       }
     }
   }
-  @media (min-width: 768px) {
-    row-gap: 60px;
+}
+
+@media (min-width: $tablet) {
+  .destination {
+    row-gap: 3.75rem;
     &__heading {
       align-self: flex-start;
     }
     &__info {
-      row-gap: 50px;
+      row-gap: 3.125rem;
       &__main {
         &__destinations {
           button {
-            font-size: 16px;
-            letter-spacing: 2.7px;
+            font-size: 1rem;
+            letter-spacing: 0.1688rem;
           }
         }
         &__name {
-          font-size: 80px;
-          margin-top: 40px;
+          font-size: 5rem;
+          margin-top: 2.5rem;
         }
         &__description {
-          padding-bottom: 60px;
+          padding-bottom: 3.75rem;
         }
         &__data {
           @include flex(row, space-evenly, center);
-          margin-top: 40px;
+          margin-top: 2.5rem;
         }
       }
     }
   }
-  @media (min-width: 1024px) {
-    padding: 70px 10% 70px 10%;
+}
+
+@media (min-width: $desktop) {
+  .destination {
+    padding: 4.375rem 0 4.375rem 0;
+    &__heading {
+      margin-left: 10%;
+    }
     &__info {
       @include flex(row, space-between, flex-start);
       text-align: start;
-      min-width: 100%;
-      padding-inline: 5%;
-      margin-top: 60px;
+      width: 100%;
+      margin-top: 3.75rem;
+      padding-inline: 10%;
       &__main {
         text-align: start;
         &__destinations {
-          grid-gap: 40px;
+          grid-gap: 2.5rem;
           margin: 0;
         }
         &__name {
-          font-size: 100px;
+          font-size: 6.25rem;
         }
         &__data {
           @include flex(row, flex-start, flex-start);
-          grid-gap: 80px;
+          grid-gap: 5rem;
           text-align: start;
         }
       }

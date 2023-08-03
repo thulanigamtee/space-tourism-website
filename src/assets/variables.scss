@@ -1,20 +1,58 @@
 // colors
-// $white: hsl(0%, 0%, 100);
-$white: #ffffff;
-$transWhite: #979797;
+$white: hsl(0, 0%, 100%);
+$grayish: #979797;
 
 // fonts
 $barlow: "Barlow", sans-serif;
 $barlowCondensed: "Barlow Condensed", sans-serif;
 $bellefair: "Bellefair", sans-serif;
 
-//animation speed
-// $speed: 0.5s;
+// breakpoints
+$tablet: 48rem;
+$desktop: 64rem;
 
-// mixins
+//flexbox
 @mixin flex($direction, $justify, $align) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;
   align-items: $align;
+}
+
+// background image
+@mixin background($bgMobile, $bgTablet, $bgDesktop) {
+  background: url($bgMobile) #0b0d17 0rem 0rem / 100% 100% no-repeat;
+  min-height: 100vh;
+  @media (min-width: $tablet) {
+    background: url($bgTablet) #0b0d17 0rem 0rem / 100% 100% no-repeat;
+  }
+  @media (min-width: $desktop) {
+    background: url($bgDesktop) #0b0d17 0rem 0rem / 100% 100% no-repeat;
+  }
+}
+
+// animation
+@keyframes fadingAnimation {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@mixin animation() {
+  &.animate {
+    animation: fadingAnimation 0.5s ease-in-out;
+  }
+}
+
+// page styles
+@mixin pageStyle() {
+  @include flex(column, center, center);
+  text-align: center;
+  overflow: hidden;
+  max-width: 90rem;
+  margin: auto;
 }

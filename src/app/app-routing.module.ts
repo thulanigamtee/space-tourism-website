@@ -6,12 +6,28 @@ import { CrewComponent } from './pages/crew/crew.component';
 import { TechnologyComponent } from './pages/technology/technology.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'destinations', component: DestinationsComponent },
-  { path: 'crew', component: CrewComponent },
-  { path: 'technology', component: TechnologyComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+    data: { animation: 'home' },
+  },
+  {
+    path: 'destination',
+    component: DestinationsComponent,
+    data: { animation: 'destination' },
+  },
+  {
+    path: 'crew',
+    component: CrewComponent,
+    data: { animation: 'crew' },
+  },
+  {
+    path: 'technology',
+    component: TechnologyComponent,
+    data: { animation: 'technology' },
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

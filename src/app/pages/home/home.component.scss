@@ -1,69 +1,68 @@
 @import "../../../assets/variables.scss";
-.homePage {
-  background: url(../../../assets/home/background-home-mobile.jpg) #0b0d17 0px
-    0px / 100% 100% no-repeat;
-  min-height: 100vh;
-  @media (min-width: 768px) {
-    background: url(../../../assets/home/background-home-tablet.jpg) #0b0d17 0px
-      0px / 100% 100% no-repeat;
-  }
-  @media (min-width: 1024px) {
-    background: url(../../../assets/home/background-home-desktop.jpg) #0b0d17
-      0px 0px / 100% 100% no-repeat;
-  }
-}
+@import "animate.css";
 
 .home {
-  @include flex(column, center, center);
-  text-align: center;
-  padding: 40px 5%;
-  row-gap: 100px;
-  max-width: 1440px;
-  margin: auto;
+  @include pageStyle;
+  padding: 2.5rem 5%;
+  row-gap: 6.25rem;
   &__info {
     @include flex(column, center, center);
-    row-gap: 25px;
+    row-gap: 1.5625rem;
     &__description {
-      max-width: 444px;
+      max-width: 27.75rem;
     }
     span {
       font-family: $bellefair;
-      font-size: 80px;
+      font-size: 5rem;
       color: $white;
       text-transform: uppercase;
     }
   }
   &__explore {
     @include flex(row, center, center);
-    font: {
-      family: $bellefair;
-      size: 20px;
-    }
-    width: clamp(150px, 30vw, 274px);
-    height: clamp(150px, 30vw, 274px);
+    font-family: $bellefair;
+    font-size: 1.25rem;
+    width: clamp(9.375rem, 30vw, 17.125rem);
+    height: clamp(9.375rem, 30vw, 17.125rem);
     background: $white;
     text-transform: uppercase;
     border-radius: 50%;
-    letter-spacing: 1.25px;
+    letter-spacing: 0.0781rem;
+    transition: 0.25s;
   }
-  @media (min-width: 768px) {
-    padding: 100px 5%;
-    row-gap: 200px;
+}
+
+@media (min-width: $tablet) {
+  .home {
+    padding: 6.25rem 5%;
+    row-gap: 12.5rem;
     &__info {
       span {
-        font-size: 150px;
+        font-size: 9.375rem;
       }
     }
     &__explore {
-      font-size: 32px;
+      font-size: 2rem;
     }
   }
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: $desktop) {
+  .home {
     @include flex(row, space-between, flex-end);
     text-align: start;
-    padding: 200px 10% 100px 10%;
+    padding: 12.5rem 0% 6.25rem 0%;
+    width: 100%;
     &__info {
       align-items: flex-start;
+      padding-inline: 10%;
+    }
+    &__explore {
+      margin-right: 10%;
+      &:hover {
+        transition: 0.25s;
+        animation: pulse 1s infinite;
+      }
     }
   }
 }
