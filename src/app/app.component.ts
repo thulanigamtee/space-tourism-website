@@ -23,7 +23,6 @@ export class AppComponent {
     const body = document.body;
 
     const routes: { [key: string]: string } = {
-      '/home': 'home',
       '/destination': 'destination',
       '/crew': 'crew',
       '/technology': 'technology',

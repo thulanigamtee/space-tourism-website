@@ -37,10 +37,8 @@ export class TechnologyComponent implements OnInit {
     const selectedTechnology = target.innerText;
 
     const newIndex = this.technologies.indexOf(Number(selectedTechnology));
-    if (newIndex !== -1) {
-      this.technologyIndex = newIndex;
-      this.handleAnimate();
-    }
+    if (this.technologyIndex !== newIndex) this.handleAnimate();
+    if (newIndex !== -1) this.technologyIndex = newIndex;
   }
 
   isActiveTechnology(tech: number): boolean {

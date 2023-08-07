@@ -17,10 +17,8 @@ export class DestinationsComponent {
     const selectedDestination = target.innerText;
 
     const newIndex = this.destinations.indexOf(selectedDestination);
-    if (newIndex !== -1) {
-      this.destinationIndex = newIndex;
-      this.handleAnimate();
-    }
+    if (this.destinationIndex !== newIndex) this.handleAnimate();
+    if (newIndex !== -1) this.destinationIndex = newIndex;
   }
 
   isActiveDestination(dest: string): boolean {

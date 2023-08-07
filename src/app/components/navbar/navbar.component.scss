@@ -113,6 +113,16 @@ header {
   header {
     padding-top: 2.5rem;
     margin-inline: auto;
+    &::before {
+      content: "";
+      opacity: 0.2515;
+      background: $white;
+      width: clamp(100px, 35vw, 473px);
+      height: 1px;
+      position: absolute;
+      transform: translateX(170px);
+      // z-index: 1;
+    }
     nav {
       ul {
         max-width: 51.875rem;

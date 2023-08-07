@@ -17,10 +17,8 @@ export class CrewComponent {
     const selectedMember = target.innerText;
 
     const newIndex = this.members.indexOf(selectedMember);
-    if (newIndex !== -1) {
-      this.memberIndex = newIndex;
-      this.handleAnimate();
-    }
+    if (this.memberIndex !== newIndex) this.handleAnimate();
+    if (newIndex !== -1) this.memberIndex = newIndex;
   }
 
   isActiveMember(member: string): boolean {

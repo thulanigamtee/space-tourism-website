@@ -9,13 +9,11 @@
 }
 
 body {
-  &.home {
-    @include background(
-      "./assets/home/background-home-mobile.jpg",
-      "./assets/home/background-home-tablet.jpg",
-      "./assets/home/background-home-desktop.jpg"
-    );
-  }
+  @include background(
+    "./assets/home/background-home-mobile.jpg",
+    "./assets/home/background-home-tablet.jpg",
+    "./assets/home/background-home-desktop.jpg"
+  );
   &.destination {
     @include background(
       "./assets/destination/background-destination-mobile.jpg",
